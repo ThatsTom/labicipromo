@@ -12,43 +12,32 @@ function changeSize(){
     this.classList.add('active');
 }
 
-// Obtém todos os elementos <span> com a classe "size"
-var spans = document.querySelectorAll('span.size');
 
-// Adiciona um evento de clique a cada elemento <span>
+const spans = document.querySelectorAll('span.size');
+
 spans.forEach(function(span) {
   span.addEventListener('click', function() {
-    // Obtém o valor dentro do elemento <span> clicado
-    var valor = this.textContent;
-    
-    // Obtém o link do WhatsApp
+    const valor = this.textContent;
     let whatsappLink = `https://api.whatsapp.com/send/?phone=5511954909997&text=Olá! Gostaria de mais informações sobre SELANTE CAFFÉLATEX EFFETTO MARIPOSA. Tamanho selecionado: ${valor} &app_absent=0`;
-    
-    // Atualiza o href do link do WhatsApp
+
     document.getElementById('whatsappLink').href = whatsappLink;
   });
 });
 
 
-// Obtém todos os elementos <span> com a classe "color"
-var colores = document.querySelectorAll('span.color');
+const colores = document.querySelectorAll('span.color');
 
-// Adiciona um evento de clique a cada elemento <span>
 colors.forEach(function(color) {
   color.addEventListener('click', function() {
-    // Remove a classe "active" de todos os elementos <span>
     colores.forEach(function(c) {
       c.classList.remove('active');
     });
-    
-    // Adiciona a classe "active" ao elemento <span> clicado
+
     this.classList.add('active');
     
-    // Obtém a cor selecionada
-    var corSelecionada = this.getAttribute('color');
-    
-    // Atualiza a quantidade com base na cor selecionada
-    var quantityText = '';
+    const corSelecionada = this.getAttribute('color');
+
+    const quantityText = '';
     switch (corSelecionada) {
       case 'blue':
         quantityText = '250ml';
@@ -63,8 +52,7 @@ colors.forEach(function(color) {
         quantityText = '250ml';
         break;
     }
-    
-    // Atualiza o texto da quantidade
+
     document.getElementById('quantity').textContent = quantityText;
   });
 });
@@ -122,13 +110,10 @@ window.addEventListener('resize', changeHeight);
 
 
 
-
-/*contador*/
-// Defina a data de modificação do arquivo manualmente (substitua com a data e hora corretas)
-var fileModifiedDate = new Date('2023-12-31T00:00:00');
+let fileModifiedDate = new Date('2023-12-31T00:00:00');
 
 function startTimer(duration, display) {
-    var start = fileModifiedDate.getTime(),
+    let start = fileModifiedDate.getTime(),
         diff,
         hours,
         minutes,
@@ -154,12 +139,12 @@ function startTimer(duration, display) {
     }
 
     timer();
-    var intervalId = setInterval(timer, 1000);
+    let intervalId = setInterval(timer, 1000);
 }
 
 window.onload = function () {
-    var duration = 48 * 60 * 60;
-    var display = document.querySelector('#timer');
+    let duration = 48 * 60 * 60;
+    let display = document.querySelector('#timer');
     
 
     startTimer(duration, display);
@@ -184,7 +169,6 @@ document.querySelector('.buy').addEventListener('click', function (event) {
         url = "https://www.labici.com.br/selante-caffelatex-effetto-mariposa-10-litros-sem-amonia-e-com-microparticulas-de-rapida-acao";
         break;
       default:
-        // Handle default case or show an error message
         break;
     }
     if (url) {
