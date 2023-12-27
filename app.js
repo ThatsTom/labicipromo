@@ -22,12 +22,13 @@ spans.forEach(function(span) {
     var valor = this.textContent;
     
     // Obtém o link do WhatsApp
-    var whatsappLink = 'https://api.whatsapp.com/send/?phone=5511954909997&text=Olá! Gostaria de mais informações sobre SELANTE CAFFÉLATEX EFFETTO MARIPOSA. Tamanho selecionado: ' + valor + '&app_absent=0';
+    let whatsappLink = `https://api.whatsapp.com/send/?phone=5511954909997&text=Olá! Gostaria de mais informações sobre SELANTE CAFFÉLATEX EFFETTO MARIPOSA. Tamanho selecionado: ${valor} &app_absent=0`;
     
     // Atualiza o href do link do WhatsApp
     document.getElementById('whatsappLink').href = whatsappLink;
   });
 });
+
 
 // Obtém todos os elementos <span> com a classe "color"
 var colores = document.querySelectorAll('span.color');
@@ -123,12 +124,11 @@ window.addEventListener('resize', changeHeight);
 
 
 /*contador*/
-
-
-
+// Defina a data de modificação do arquivo manualmente (substitua com a data e hora corretas)
+var fileModifiedDate = new Date('2023-12-31T00:00:00');
 
 function startTimer(duration, display) {
-    var start = Date.now(),
+    var start = fileModifiedDate.getTime(),
         diff,
         hours,
         minutes,
@@ -139,11 +139,10 @@ function startTimer(duration, display) {
 
         if (diff < 0) {
             clearInterval(intervalId);
-            localStorage.removeItem('timer'); // Remove o valor do localStorage ao finalizar
             return;
         }
 
-        hours = (diff / 3600) | 0;
+        hours = (diff / 9550) | 0;
         minutes = ((diff % 3600) / 60) | 0;
         seconds = (diff % 60) | 0;
 
@@ -152,9 +151,6 @@ function startTimer(duration, display) {
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display.textContent = hours + ":" + minutes + ":" + seconds;
-
-        // Salva o valor do contador no localStorage a cada segundo
-        localStorage.setItem('timer', JSON.stringify({ diff: diff, start: start }));
     }
 
     timer();
@@ -162,34 +158,40 @@ function startTimer(duration, display) {
 }
 
 window.onload = function () {
-    var duration = 48 * 60 * 60; // 48 horas em segundos
+    var duration = 48 * 60 * 60;
     var display = document.querySelector('#timer');
     
-    // Verifica se há um valor armazenado no localStorage
-    var storedTimer = JSON.parse(localStorage.getItem('timer'));
-    if (storedTimer) {
-        // Se houver, recupera o valor e inicia o contador a partir dele
-        var remainingTime = storedTimer.diff - ((Date.now() - storedTimer.start) / 1000) | 0;
-        if (remainingTime <= 0) {
-            // Se o tempo restante for menor ou igual a zero, remove o item do localStorage
-            localStorage.removeItem('timer');
-            startTimer(duration, display);
-        } else {
-            startTimer(remainingTime, display);
-        }
-    } else {
-        // Caso contrário, inicia o contador com o valor inicial de 48 horas
-        startTimer(duration, display);
-    }
+
+    startTimer(duration, display);
 };
 
-// Limpa o valor do contador no localStorage ao fechar a página
-window.onbeforeunload = function () {
-    // Verifica se o contador está em execução
-    if (localStorage.getItem('timer')) {
-        // Salva o tempo restante no localStorage
-        var storedTimer = JSON.parse(localStorage.getItem('timer'));
-        storedTimer.diff = duration - (((Date.now() - storedTimer.start) / 1000) | 0);
-        localStorage.setItem('timer', JSON.stringify(storedTimer));
+
+
+
+document.querySelector('.buy').addEventListener('click', function (event) {
+  const activeSize = document.querySelector('span.size.active');
+  if (activeSize) {
+    const sizeText = activeSize.textContent.trim();
+    let url = '';
+    switch (sizeText) {
+      case '250 ml':
+        url = "https://www.labici.com.br/selante-caffelatex-effetto-mariposa-250ml-sem-amonia-e-com-microparticulas-de-rapida-acao";
+        break;
+      case '1 litro':
+        url = "https://www.labici.com.br/selante-caffelatex-effetto-mariposa-1-litro-sem-amonia-e-com-microparticulas-de-rapida-acao";
+        break;
+      case '10 litros':
+        url = "https://www.labici.com.br/selante-caffelatex-effetto-mariposa-10-litros-sem-amonia-e-com-microparticulas-de-rapida-acao";
+        break;
+      default:
+        // Handle default case or show an error message
+        break;
     }
-};
+    if (url) {
+      this.href = url;
+    }
+  } else {
+    event.preventDefault();
+    alert('Por favor, selecione um tamanho antes de ir para a página de compra.');
+  }
+});
