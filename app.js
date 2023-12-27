@@ -24,6 +24,15 @@ spans.forEach(function(span) {
   });
 });
 
+document.querySelector('.fab.fa-whatsapp').addEventListener('click', function (event) {
+  const activeSize = document.querySelector('span.size.active');
+  if (!activeSize) {
+    event.preventDefault();
+    alert('Por favor, selecione um tamanho antes de enviar uma mensagem pelo WhatsApp.');
+  }
+});
+
+
 
 document.querySelector('.buy').addEventListener('click', function (event) {
   const activeSize = document.querySelector('span.size.active');
