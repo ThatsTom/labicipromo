@@ -25,19 +25,51 @@ spans.forEach(function(span) {
 });
 
 
+document.querySelector('.buy').addEventListener('click', function (event) {
+  const activeSize = document.querySelector('span.size.active');
+  const activeColor = document.querySelector('span.color.active');
+
+  if (activeSize && activeColor) {
+    const sizeText = activeSize.textContent.trim();
+    const colorValue = activeColor.getAttribute('color');
+    let url = '';
+
+    switch (sizeText) {
+      case '250 ml':
+        url = "https://www.labici.com.br/selante-caffelatex-effetto-mariposa-250ml-sem-amonia-e-com-microparticulas-de-rapida-acao";
+        break;
+      case '1 litro':
+        url = "https://www.labici.com.br/selante-caffelatex-effetto-mariposa-1-litro-sem-amonia-e-com-microparticulas-de-rapida-acao";
+        break;
+      case '10 litros':
+        url = "https://www.labici.com.br/selante-caffelatex-effetto-mariposa-10-litros-sem-amonia-e-com-microparticulas-de-rapida-acao";
+        break;
+      default:
+        break;
+    }
+
+    if (url) {
+      this.href = url;
+    }
+  } else {
+    event.preventDefault();
+    alert('Por favor, selecione um tamanho e uma cor antes de ir para a página de compra.');
+  }
+});
+
 const colores = document.querySelectorAll('span.color');
 
-colors.forEach(function(color) {
-  color.addEventListener('click', function() {
-    colores.forEach(function(c) {
+colors.forEach(function (color) {
+  color.addEventListener('click', function () {
+    colors.forEach(function (c) {
       c.classList.remove('active');
     });
 
     this.classList.add('active');
-    
-    const corSelecionada = this.getAttribute('color');
 
-    const quantityText = '';
+    const corSelecionada = this.getAttribute('color');
+    let quantityText = '';
+
     switch (corSelecionada) {
       case 'blue':
         quantityText = '250ml';
@@ -45,7 +77,7 @@ colors.forEach(function(color) {
       case 'red':
         quantityText = '1 litro';
         break;
-      case 'black':
+      case 'green':
         quantityText = '10 litros';
         break;
       default:
@@ -56,6 +88,7 @@ colors.forEach(function(color) {
     document.getElementById('quantity').textContent = quantityText;
   });
 });
+
 
 
 
@@ -149,33 +182,3 @@ window.onload = function () {
 
     startTimer(duration, display);
 };
-
-
-
-
-document.querySelector('.buy').addEventListener('click', function (event) {
-  const activeSize = document.querySelector('span.size.active');
-  if (activeSize) {
-    const sizeText = activeSize.textContent.trim();
-    let url = '';
-    switch (sizeText) {
-      case '250 ml':
-        url = "https://www.labici.com.br/selante-caffelatex-effetto-mariposa-250ml-sem-amonia-e-com-microparticulas-de-rapida-acao";
-        break;
-      case '1 litro':
-        url = "https://www.labici.com.br/selante-caffelatex-effetto-mariposa-1-litro-sem-amonia-e-com-microparticulas-de-rapida-acao";
-        break;
-      case '10 litros':
-        url = "https://www.labici.com.br/selante-caffelatex-effetto-mariposa-10-litros-sem-amonia-e-com-microparticulas-de-rapida-acao";
-        break;
-      default:
-        break;
-    }
-    if (url) {
-      this.href = url;
-    }
-  } else {
-    event.preventDefault();
-    alert('Por favor, selecione um tamanho antes de ir para a página de compra.');
-  }
-});
