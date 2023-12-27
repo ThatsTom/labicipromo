@@ -71,7 +71,14 @@ body{
     animation: 1s width ease;
 }
 
-
+@keyframes width{
+    from{
+        width: 100%;
+    }
+    to{
+        width: 100%;
+    }
+}
 
 .second{
     z-index: -1;
