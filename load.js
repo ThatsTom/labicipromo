@@ -6,7 +6,6 @@ function preloadImages(imageUrls) {
     }
   }
   
-  // Lista de URLs das imagens que você deseja pré-carregar
   const imageUrls = [
     'img/uparImagensAqui/250-ml.png',
     'img/uparImagensAqui/1litro.png',
