@@ -77,7 +77,7 @@ colors.forEach(function (color) {
       case 'red':
         quantityText = '1 litro';
         break;
-      case 'green':
+      case 'black':
         quantityText = '10 litros';
         break;
       default:
