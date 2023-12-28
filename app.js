@@ -151,43 +151,42 @@ changeHeight();
 window.addEventListener('resize', changeHeight);
 
 
-
-let fileModifiedDate = new Date('2023-12-31T00:00:00');
-
 function startTimer(duration, display) {
-    let start = fileModifiedDate.getTime(),
-        diff,
-        hours,
-        minutes,
-        seconds;
+  let start = localStorage.getItem('startTime') || Date.now(),
+      diff,
+      hours,
+      minutes,
+      seconds;
 
-    function timer() {
-        diff = duration - (((Date.now() - start) / 1000) | 0);
+  localStorage.setItem('startTime', start);
 
-        if (diff < 0) {
-            clearInterval(intervalId);
-            return;
-        }
+  function timer() {
+    diff = duration - (((Date.now() - start) / 1000) | 0);
 
-        hours = (diff / 9550) | 0;
-        minutes = ((diff % 3600) / 60) | 0;
-        seconds = (diff % 60) | 0;
-
-        hours = hours < 10 ? "0" + hours : hours;
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = hours + ":" + minutes + ":" + seconds;
+    if (diff < 0) {
+      clearInterval(intervalId);
+      localStorage.removeItem('startTime'); // Limpa o localStorage quando o tempo expira
+      return;
     }
 
-    timer();
-    let intervalId = setInterval(timer, 1000);
+    hours = (diff / 12000) | 0;
+    minutes = ((diff % 3600) / 60) | 0;
+    seconds = (diff % 60) | 0;
+
+    hours = hours < 10 ? '0' + hours : hours;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    display.textContent = hours + ':' + minutes + ':' + seconds;
+  }
+
+  timer();
+  let intervalId = setInterval(timer, 1000);
 }
 
-window.onload = function () {
-    let duration = 48 * 60 * 60;
-    let display = document.querySelector('#timer');
-    
+window.onload = function() {
+  let duration = 48 * 60 * 60; // 48 horas em segundos
+  let display = document.querySelector('#timer');
 
-    startTimer(duration, display);
+  startTimer(duration, display);
 };
