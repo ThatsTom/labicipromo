@@ -151,27 +151,23 @@ changeHeight();
 window.addEventListener('resize', changeHeight);
 
 
-function startTimer(duration, display) {
-  let start = localStorage.getItem('startTime') || Date.now(),
-      diff,
-      hours,
-      minutes,
-      seconds;
-
-  localStorage.setItem('startTime', start);
+function startTimer(startDate, endDate, display) {
+  let start = new Date(startDate).getTime();
+  let end = new Date(endDate).getTime();
+  let diff, hours, minutes, seconds;
 
   function timer() {
-    diff = duration - (((Date.now() - start) / 1000) | 0);
+    let now = new Date().getTime();
+    diff = end - now;
 
     if (diff < 0) {
       clearInterval(intervalId);
-      localStorage.removeItem('startTime'); // Limpa o localStorage quando o tempo expira
       return;
     }
 
-    hours = (diff / 12000) | 0;
-    minutes = ((diff % 3600) / 60) | 0;
-    seconds = (diff % 60) | 0;
+    hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    minutes = Math.floor((diff / (1000 * 60)) % 60);
+    seconds = Math.floor((diff / 1000) % 60);
 
     hours = hours < 10 ? '0' + hours : hours;
     minutes = minutes < 10 ? '0' + minutes : minutes;
@@ -185,8 +181,18 @@ function startTimer(duration, display) {
 }
 
 window.onload = function() {
-  let duration = 48 * 60 * 60; // 48 horas em segundos
+  let startDate = "2023-12-28T" + getCurrentTime(); 
+  let endDate = "2023-12-29T00:00:01"; 
   let display = document.querySelector('#timer');
 
-  startTimer(duration, display);
+  startTimer(startDate, endDate, display);
 };
+
+function getCurrentTime() {
+  let now = new Date();
+  let hours = now.getHours() < 10 ? '0' + now.getHours() : now.getHours();
+  let minutes = now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes();
+  let seconds = now.getSeconds() < 10 ? '0' + now.getSeconds() : now.getSeconds();
+  return hours + ":" + minutes + ":" + seconds;
+}
+
