@@ -1,0 +1,22 @@
+name: Update Page
+
+on:
+  schedule:
+    - cron: '1 0 * * *' # Executa todos os dias às 00:00:01 UTC
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Update page
+        run: |
+          # Coloque aqui os comandos para atualizar sua página
+          # Exemplo:
+          # git fetch --all
+          # git reset --hard origin/main
+          # ./build.sh # Se você precisar reconstruir a página
+          # git push

@@ -7,9 +7,7 @@ function preloadImages(imageUrls) {
   }
   
   const imageUrls = [
-    'img/uparImagensAqui/250-ml.png',
-    'img/uparImagensAqui/1litro.png',
-    'img/uparImagensAqui/10-litros.png'
+    'assets\img/uparImagensAqui/SPK-6553 (1).png',
   ];
   
   // Chama a função para pré-carregar as imagens

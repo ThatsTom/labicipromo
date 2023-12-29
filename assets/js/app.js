@@ -18,7 +18,7 @@ const spans = document.querySelectorAll('span.size');
 spans.forEach(function(span) {
   span.addEventListener('click', function() {
     const valor = this.textContent;
-    let whatsappLink = `https://api.whatsapp.com/send/?phone=5511954909997&text=Olá! Gostaria de mais informações sobre SELANTE CAFFÉLATEX EFFETTO MARIPOSA. Tamanho selecionado: ${valor} &app_absent=0`;
+    let whatsappLink = `https://api.whatsapp.com/send/?phone=5511954909997&text=Olá! Gostaria de mais informações sobre MORSA CYCLUS PRO PARA SUSPENSÃO E SHOCK. Tamanho selecionado: ${valor} &app_absent=0`;
 
     document.getElementById('whatsappLink').href = whatsappLink;
   });
@@ -44,8 +44,8 @@ document.querySelector('.buy').addEventListener('click', function (event) {
     let url = '';
 
     switch (sizeText) {
-      case '250 ml':
-        url = "https://www.labici.com.br/selante-caffelatex-effetto-mariposa-250ml-sem-amonia-e-com-microparticulas-de-rapida-acao";
+      case '100mm':
+        url = "https://www.labici.com.br/morsa-cyclus-pro-para-suspensao-e-shock-100mm-720306";
         break;
       case '1 litro':
         url = "https://www.labici.com.br/selante-caffelatex-effetto-mariposa-1-litro-sem-amonia-e-com-microparticulas-de-rapida-acao";
@@ -151,42 +151,36 @@ changeHeight();
 window.addEventListener('resize', changeHeight);
 
 
-function startTimer(startDate, endDate, display) {
-  let start = new Date(startDate).getTime();
-  let end = new Date(endDate).getTime();
-  let diff, hours, minutes, seconds;
-
-  function timer() {
-    let now = new Date().getTime();
-    diff = end - now;
-
-    if (diff < 0) {
-      clearInterval(intervalId);
-      return;
-    }
-
-    hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    minutes = Math.floor((diff / (1000 * 60)) % 60);
-    seconds = Math.floor((diff / 1000) % 60);
-
-    hours = hours < 10 ? '0' + hours : hours;
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-
-    display.textContent = hours + ':' + minutes + ':' + seconds;
-  }
-
-  timer();
-  let intervalId = setInterval(timer, 1000);
-}
-
 window.onload = function() {
-  let startDate = "2023-12-28T" + getCurrentTime(); 
-  let endDate = "2023-12-29T00:00:01"; 
+  let startDate = new Date("2023-12-29T" + getCurrentTime());
+  let endDate = new Date("2024-01-02T18:00:01");
   let display = document.querySelector('#timer');
 
   startTimer(startDate, endDate, display);
 };
+
+function startTimer(startDate, endDate, display) {
+  setInterval(function() {
+    let now = new Date();
+    let timeDifference = endDate.getTime() - now.getTime();
+
+    if (timeDifference <= 0) {
+      clearInterval(interval);
+      display.textContent = 'Tempo expirado';
+    } else {
+      let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+      if (days > 0) {
+        display.textContent = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+      } else {
+        display.textContent = hours + "h " + minutes + "m " + seconds + "s";
+      }
+    }
+  }, 1000);
+}
 
 function getCurrentTime() {
   let now = new Date();
