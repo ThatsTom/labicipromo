@@ -202,7 +202,7 @@ colorSpans.forEach(span => {
 
 window.onload = function () {
     let startDate = new Date(`${ano}-${mes}-${dia}T${getCurrentTime()}`);
-    let endDate = new Date(`${ano}-${mes}-${diaFinal}T00:00:01`);
+    let endDate = new Date(`${ano}-${mes}-${diaFinal}T10:00:01`);
     let display = document.querySelector('#timer');
 
     startTimer(startDate, endDate, display);
@@ -217,7 +217,7 @@ function startTimer(startDate, endDate, display) {
         if (timeDifference <= 0) {
             clearInterval(interval);
             dia = parseInt(dia) + 2; 
-            diaFinal = parseInt(diaFinal) + 2; 
+            diaFinal = parseInt(diaFinal) + 3; 
             contador+1; 
 
 
