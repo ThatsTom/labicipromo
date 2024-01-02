@@ -53,7 +53,7 @@ let descricoes = [
 ];
 
 let variacoesProdutos = [
-    "10MM",
+    "100MM",
 
 ]
 
