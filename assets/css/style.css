@@ -14,7 +14,7 @@ body{
 }
 
 .container{
-    margin: 110px 0px 0px 0px;
+    margin: 110px 0px 110px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -170,7 +170,7 @@ span.new {
 }
 
 .info{
-    width: 50%;
+    width: 70%;
     background-color: #fff;
     z-index: 1;
     padding: 35px 40px;
@@ -220,6 +220,7 @@ span.new {
 }
 
 .title{
+    text-align: center;
     color: #3a3a3a;
     font-weight: 600;
     font-size: 1.2rem;
@@ -301,6 +302,8 @@ span.new {
     padding: 8px 0;
     display: flex;
     align-items: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .size{
