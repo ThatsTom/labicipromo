@@ -6,6 +6,7 @@ let contador = 0;
 
 let titulosFundo = [
     "MORSA",
+    "DESTAQUE FINALIZADO",
 ];
 
 let srcImgs = [
@@ -17,13 +18,13 @@ let srcImgs = [
 
 let titulosPrincipais = [
     "MORSA CYCLUS",
-    "Título Principal 2",
+    "DESTAQUE FINALIZADO",
     "Título Principal 3"
 ];
 
 let descontoDestaque = [
     "Poucas Unidades",
-    "20% off",
+    "AGUARDE",
     "teste"
 ];
 
@@ -47,7 +48,7 @@ let primary = [
 
 let descricoes = [
     "MORSA CYCLUS PRO PARA SUSPENSÃO E SHOCK 100mm - 720306 Morsa forjada e usinada, sem folga na parte do torno, o que possibilita a movimentação dos mordentes sem desalinha-los. Adequada para manutenção de suspensões dianteira e traseira. Peso: 13kg.",
-    "Descrição do Produto 2",
+    "DESTAQUE FINALIZADO",
     "Descrição do Produto 3"
 ];
 
