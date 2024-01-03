@@ -2,7 +2,7 @@ name: Update Page
 
 on:
   schedule:
-    - cron: '1 0 * * *' # Executa todos os dias às 00:00:01 UTC
+    - cron: '1 0 * * *'
 
 jobs:
   update:
@@ -14,9 +14,6 @@ jobs:
 
       - name: Update page
         run: |
-          # Coloque aqui os comandos para atualizar sua página
-          # Exemplo:
-          # git fetch --all
-          # git reset --hard origin/main
-          # ./build.sh # Se você precisar reconstruir a página
-          # git push
+          git add .
+          git commit -m "atualização automatica do dia"
+          git push
