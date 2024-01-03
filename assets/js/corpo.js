@@ -1,7 +1,7 @@
 let ano = "2024";
 let dia = "02";
 let mes = "01";
-let diaFinal = "04";
+let diaFinal = "08";
 let contador = 0; 
 
 let titulosFundo = [
@@ -29,7 +29,7 @@ let descontoDestaque = [
 ];
 
 let cores = [
-    "blue",
+    "purple",
     "red",
     "black",
     "orange",
@@ -38,7 +38,7 @@ let cores = [
 ];
 
 let primary = [
-    "0136af",
+    "7400D5",
     "ff4081",
     "111",
     "fc4a1a",
@@ -46,9 +46,18 @@ let primary = [
     "11998e"
 ];
 
+let armazemDasCores = {
+    blue: "0136af",
+    red: "ff4081",
+    black: "111",
+    orange: "fc4a1a",
+    purple: "7400D5",
+    green: "11998e"
+};
+
 let descricoes = [
     "MORSA CYCLUS PRO PARA SUSPENSÃO E SHOCK 100mm - 720306 Morsa forjada e usinada, sem folga na parte do torno, o que possibilita a movimentação dos mordentes sem desalinha-los. Adequada para manutenção de suspensões dianteira e traseira. Peso: 13kg.",
-    "DESTAQUE FINALIZADO",
+    "AGUARDE NOVO DESTAQUE",
     "Descrição do Produto 3"
 ];
 
@@ -73,8 +82,7 @@ corpo.innerHTML = corpo.innerHTML + ` <div class="container">
     <div class="card">
         <div class="shoeBackground">
 
-            <div class="gradients">
-            
+            <div class="gradients">       
             <div class="gradient second active" color="${cores[contador - contador]}"></div>
 
             </div>
