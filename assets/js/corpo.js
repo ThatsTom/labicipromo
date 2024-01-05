@@ -47,7 +47,6 @@ let primary = [
 ];
 
 let armazemDasCores = {
-    blue: "0136af",
     red: "ff4081",
     black: "111",
     orange: "fc4a1a",
@@ -80,56 +79,57 @@ let corpo = document.getElementById('container');
 corpo.innerHTML = corpo.innerHTML + ` <div class="container">
 
     <div class="card">
-        <div class="shoeBackground">
+        <a href="${urlsProdutos[contador]}"target="_blank">
+                <div class="shoeBackground">
 
-            <div class="gradients">       
-            <div class="gradient second active" color="${cores[contador - contador]}"></div>
+                    <div class="gradients">
+                    <div class="gradient second active" color="${cores[contador - contador]}"></div>
 
-            </div>
+                    </div>
 
-            <a href="https://www.labici.com.br/" target="_blank">
-                <h1 class="titulo">${titulosFundo[contador]}</h1>
-            </a>
-            <img src="assets/img/labiciLogo.png" alt="" class="logo">
-            <a href="#" id="whatsappLink" class="share" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
-            <div class="teste">
-            ${criarImagens(srcImgs, cores)} 
+                    <a href="https://www.labici.com.br/" target="_blank">
+                        <h1 class="titulo">${titulosFundo[contador]}</h1>
+                    </a>
+                    <img src="assets/img/labiciLogo.png" alt="" class="logo">
+                    <a href="#" id="whatsappLink" class="share" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
+                    <div class="teste">
+                    ${criarImagens(srcImgs, cores)} 
 
 
-            </div>
-        </div>
-        <div class="info">
-            <div class="shoeName">
-                <div>
-                    <h1 class="big">${titulosPrincipais[contador]}</h1>
-                    <span class="new">${descontoDestaque[contador]}</span>
+                    </div>
                 </div>
-                <h3 class="small">Promoção valida somente por:</h3>
-                <h3 id="timer" class="contador"></h3>
-            </div>
-            <div class="description">
-                <h3 class="title">Informação do Produto</h3>
-                <p class="text">${descricoes[contador]}</p>
-            </div>
+                <div class="info">
+                    <div class="shoeName">
+                        <div>
+                            <h1 class="big">${titulosPrincipais[contador]}</h1>
+                            <span class="new">${descontoDestaque[contador]}</span>
+                        </div>
+                        <h3 class="small">Promoção valida somente por:</h3>
+                        <h3 id="timer" class="contador"></h3>
+                    </div>
+                    <div class="description">
+                        <h3 class="title">Informação do Produto</h3>
+                        <p class="text">${descricoes[contador]}</p>
+                    </div>
 
-            
-            <div class="size-container">
-                <h3 class="title">Tamanhos disponiveis</h3>
-                <div class="sizes">
-                
-                ${criarSpans(variacoesProdutos, cores, primary)}
                     
+                    <div class="size-container">
+                        <h3 class="title">Tamanhos disponiveis</h3>
+                        <div class="sizes">
+                        
+                        ${criarSpans(variacoesProdutos, cores, primary)}
+                            
 
+                        </div>
+                    </div>
+                    <div class="buy-price">
+                        <a href="${urlsProdutos[contador]}" class="buy" target="_blank"><i
+                                class="fas fa-shopping-cart" data="urlSite"></i>Ir ate a pagina</a>
+                    </div>
+                    <div class="observacao"><h3 class="texto-obs">Caso queira ser atendido diretamente por um colaborador selecione o <b><u>TAMANHO</u></b>
+                        e clique no icone do <b><u>WHATSAPP</u></b> no topo da pagina</h3></div>
                 </div>
-            </div>
-            <div class="buy-price">
-                <a href="${urlsProdutos[contador]}" class="buy" target="_blank"><i
-                        class="fas fa-shopping-cart" data="urlSite"></i>Ir ate a pagina</a>
-            </div>
-            <div class="observacao"><h3 class="texto-obs">Caso queira ser atendido diretamente por um colaborador selecione o <b><u>TAMANHO</u></b>
-                e clique no icone do <b><u>WHATSAPP</u></b> no topo da pagina</h3></div>
-        </div>
-
+            </a>
     </div>
 
 </div>`;
