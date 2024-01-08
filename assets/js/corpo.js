@@ -1,7 +1,7 @@
 let ano = "2024";
-let dia = "02";
+let dia = "08";
 let mes = "01";
-let diaFinal = "08";
+let diaFinal = "10";
 let contador = 0; 
 
 let titulosFundo = [
@@ -23,14 +23,19 @@ let titulosPrincipais = [
 ];
 
 let descontoDestaque = [
-    "Poucas Unidades",
+    "PRONTA ENTREGA",
     "AGUARDE",
     "teste"
 ];
 
+let validaPor = [
+    "Promoção valida somente por:",
+    "Proximo destaque em:"
+]
+
 let cores = [
-    "purple",
     "red",
+    "green",
     "black",
     "orange",
     "purple",
@@ -38,8 +43,8 @@ let cores = [
 ];
 
 let primary = [
-    "7400D5",
     "ff4081",
+    "11998e",
     "111",
     "fc4a1a",
     "7400D5",
@@ -104,7 +109,7 @@ corpo.innerHTML = corpo.innerHTML + ` <div class="container">
                             <h1 class="big">${titulosPrincipais[contador]}</h1>
                             <span class="new">${descontoDestaque[contador]}</span>
                         </div>
-                        <h3 class="small">Promoção valida somente por:</h3>
+                        <h3 class="small">${validaPor[contador]}</h3>
                         <h3 id="timer" class="contador"></h3>
                     </div>
                     <div class="description">
