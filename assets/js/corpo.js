@@ -1,23 +1,21 @@
 let ano = "2024";
-let dia = "08";
+let dia = "10";
 let mes = "01";
-let diaFinal = "10";
+let diaFinal = "15";
 let contador = 0; 
 
 let titulosFundo = [
-    "MORSA",
+    "Effeto",
     "DESTAQUE FINALIZADO",
 ];
 
 let srcImgs = [
+    "assets/img/uparImagensAqui/flowerpower-wax-500ml(sem-fundo).png",
+    "assets/img/uparImagensAqui/flowerpower-wax-500ml(sem-fundo).png",
     "assets/img/uparImagensAqui/SPK-6553 (1).png",
-    "assets/img/uparImagensAqui/SPK-6553 (1).png",
-    "assets/img/uparImagensAqui/SPK-6553 (1).png",
-    "assets/img/uparImagensAqui/SPK-6553 (1).png"
 ];
-
 let titulosPrincipais = [
-    "MORSA CYCLUS",
+    "CERA LUBRIFICANTE",
     "DESTAQUE FINALIZADO",
     "Título Principal 3"
 ];
@@ -34,7 +32,7 @@ let validaPor = [
 ]
 
 let cores = [
-    "red",
+    "purple",
     "green",
     "black",
     "orange",
@@ -43,7 +41,7 @@ let cores = [
 ];
 
 let primary = [
-    "ff4081",
+    "7400D5",
     "11998e",
     "111",
     "fc4a1a",
@@ -60,19 +58,20 @@ let armazemDasCores = {
 };
 
 let descricoes = [
-    "MORSA CYCLUS PRO PARA SUSPENSÃO E SHOCK 100mm - 720306 Morsa forjada e usinada, sem folga na parte do torno, o que possibilita a movimentação dos mordentes sem desalinha-los. Adequada para manutenção de suspensões dianteira e traseira. Peso: 13kg.",
+    "Os lubrificantes à base de cera são uma maneira eficiente e limpa de lubrificar a corrente da bicicleta. Com seu conteúdo de cera de girassol, a Cera Flowerpower usa ingredientes naturais para ter ótimo desempenho e confiabilidade.",
     "AGUARDE NOVO DESTAQUE",
     "Descrição do Produto 3"
 ];
 
 let variacoesProdutos = [
-    "100MM",
+    "100ml",
+    "500ml"
 
 ]
 
 let urlsProdutos = [
-    "https://www.labici.com.br/morsa-cyclus-pro-para-suspensao-e-shock-100mm-720306",
-    "https://www.labici.com.br/selante-caffelatex-effetto-mariposa-1-litro-sem-amonia-e-com-microparticulas-de-rapida-acao",
+    "https://www.labici.com.br/produto/cera-lubrificante-effetto-mariposa-flowerpower-wax-para-corrente-de-bicicleta-100ml.html",
+    "https://www.labici.com.br/produto/cera-lubrificante-effetto-mariposa-flowerpower-wax-para-corrente-de-bicicleta-500ml.html",
     "https://www.labici.com.br/selante-caffelatex-effetto-mariposa-10-litros-sem-amonia-e-com-microparticulas-de-rapida-acao"
 ];
 

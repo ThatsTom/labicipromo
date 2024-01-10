@@ -4,6 +4,7 @@ const shoes = document.querySelectorAll('.shoe');
 const gradients = document.querySelectorAll('.gradient');
 const shoeBg = document.querySelector('.shoeBackground');
 
+
 let prevColor = "blue";
 let animationEnd = true;
 
@@ -18,7 +19,7 @@ const spans = document.querySelectorAll('span.size');
 spans.forEach(function(span) {
   span.addEventListener('click', function() {
     const valor = this.textContent;
-    let whatsappLink = `https://api.whatsapp.com/send/?phone=5511954909997&text=Olá! Gostaria de mais informações sobre MORSA CYCLUS PRO PARA SUSPENSÃO E SHOCK. Tamanho selecionado: ${valor} &app_absent=0`;
+    let whatsappLink = `https://api.whatsapp.com/send/?phone=5511954909997&text=Olá! Gostaria de mais informações sobre CERA LUBRIFICANTE EFFETTO MARIPOSA FLOWERPOWER WAX. Tamanho selecionado: ${valor} &app_absent=0`;
 
     document.getElementById('whatsappLink').href = whatsappLink;
   });
