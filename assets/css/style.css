@@ -435,6 +435,11 @@ span.new {
 }
 
 @media (max-width: 490px){
+    .container{
+        margin-top: 0px;
+
+    }
+
     .titulo{
         position: absolute;
         top: 341px;

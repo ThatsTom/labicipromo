@@ -1,27 +1,27 @@
 let ano = "2024";
-let dia = "10";
+let dia = "15";
 let mes = "01";
-let diaFinal = "15";
-let contador = 0; 
+let diaFinal = "20";
+let contador = 0;
 
 let titulosFundo = [
-    "Effeto",
+    "RIDEREVER",
     "DESTAQUE FINALIZADO",
 ];
 
 let srcImgs = [
-    "assets/img/uparImagensAqui/flowerpower-wax-500ml(sem-fundo).png",
-    "assets/img/uparImagensAqui/flowerpower-wax-500ml(sem-fundo).png",
+    "assets/img/uparImagensAqui/1.png",
+    "assets/img/uparImagensAqui/2.png",
     "assets/img/uparImagensAqui/SPK-6553 (1).png",
 ];
 let titulosPrincipais = [
-    "CERA LUBRIFICANTE",
+    "LINHA RIDEREVER",
     "DESTAQUE FINALIZADO",
     "Título Principal 3"
 ];
 
 let descontoDestaque = [
-    "PRONTA ENTREGA",
+    "NOVO",
     "AGUARDE",
     "teste"
 ];
@@ -29,11 +29,11 @@ let descontoDestaque = [
 let validaPor = [
     "Promoção valida somente por:",
     "Proximo destaque em:"
-]
+];
 
 let cores = [
-    "purple",
     "green",
+    "orange",
     "black",
     "orange",
     "purple",
@@ -41,8 +41,8 @@ let cores = [
 ];
 
 let primary = [
-    "7400D5",
     "11998e",
+    "fc4a1a",
     "111",
     "fc4a1a",
     "7400D5",
@@ -58,19 +58,18 @@ let armazemDasCores = {
 };
 
 let descricoes = [
-    "Os lubrificantes à base de cera são uma maneira eficiente e limpa de lubrificar a corrente da bicicleta. Com seu conteúdo de cera de girassol, a Cera Flowerpower usa ingredientes naturais para ter ótimo desempenho e confiabilidade.",
+    "Uma das melhores e mais econômicas soluções do mercado para montagem de uma bike para triatlo com sistema de freio hidráulico, podendo ainda ser instalado com os botões Di2 (SW-R9150 ou SW-RS801).<br>- Frenagem equilibrada e extremamente responsiva.<br>- Manete ergonômico com o lever em fibra de carbono.<br>- Super leve e compacto (direito 305g esquerdo 308g)<br>- Pinças em alumínio com pastilhas de freio semi-metálica.",
     "AGUARDE NOVO DESTAQUE",
     "Descrição do Produto 3"
 ];
 
 let variacoesProdutos = [
-    "100ml",
-    "500ml"
+    "MANETE DE FREIO",
 
 ]
 
 let urlsProdutos = [
-    "https://www.labici.com.br/produto/cera-lubrificante-effetto-mariposa-flowerpower-wax-para-corrente-de-bicicleta-100ml.html",
+    "https://www.labici.com.br/manete-de-freio-tt-carbon-riderever-pincas",
     "https://www.labici.com.br/produto/cera-lubrificante-effetto-mariposa-flowerpower-wax-para-corrente-de-bicicleta-500ml.html",
     "https://www.labici.com.br/selante-caffelatex-effetto-mariposa-10-litros-sem-amonia-e-com-microparticulas-de-rapida-acao"
 ];
@@ -80,28 +79,33 @@ let urlsProdutos = [
 let corpo = document.getElementById('container');
 
 
+
+
+
 corpo.innerHTML = corpo.innerHTML + ` <div class="container">
 
     <div class="card">
+
         <a href="${urlsProdutos[contador]}"target="_blank">
                 <div class="shoeBackground">
-
-                    <div class="gradients">
-                    <div class="gradient second active" color="${cores[contador - contador]}"></div>
-
-                    </div>
-
                     <a href="https://www.labici.com.br/" target="_blank">
-                        <h1 class="titulo">${titulosFundo[contador]}</h1>
-                    </a>
-                    <img src="assets/img/labiciLogo.png" alt="" class="logo">
-                    <a href="#" id="whatsappLink" class="share" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
-                    <div class="teste">
-                    ${criarImagens(srcImgs, cores)} 
+                        <div class="gradients">
+                        <div class="gradient second active" color="${cores[contador]}"></div>
 
+                        </div>
 
-                    </div>
+                        
+                            <h1 class="titulo">${titulosFundo[contador]}</h1>
+                        
+                        <img src="assets/img/labiciLogo.png" alt="" class="logo">
+                        <a href="#" id="whatsappLink" class="share" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
+                        <div class="teste">
+                             ${criarImagens(srcImgs, cores)} 
+                        </div>
+
                 </div>
+        </a>
+
                 <div class="info">
                     <div class="shoeName">
                         <div>
@@ -118,7 +122,7 @@ corpo.innerHTML = corpo.innerHTML + ` <div class="container">
 
                     
                     <div class="size-container">
-                        <h3 class="title">Tamanhos disponiveis</h3>
+                        <h3 class="title">Produtos disponível</h3>
                         <div class="sizes">
                         
                         ${criarSpans(variacoesProdutos, cores, primary)}
@@ -137,34 +141,6 @@ corpo.innerHTML = corpo.innerHTML + ` <div class="container">
     </div>
 
 </div>`;
-
-
-function criarSpans(variacoesProdutos, cores, primary) {
-    let spans = '';
-    let numItens = variacoesProdutos.length;
-
-    let spanStyles = numItens >= 4
-        ? 'width: 20%; height: 30px;'
-        : '';
-    let textoSpanStyles = numItens >= 4
-        ? 'font-size: 0.6rem;'
-        : '';
-
-    for (let i = 0; i < numItens; i++) {
-        spans += `<span style="${spanStyles}" class="color size" primary="#${primary[i]}" color="#${cores[i]}"><h4 style="${textoSpanStyles}" class="textoSpan">${variacoesProdutos[i]}</h4></span>`;
-    }
-
-    return spans;
-};
-
-function criarImagens(srcImgs, cores) {
-    let imagens = '';
-    for (let i = 0; i < srcImgs.length; i++) {
-        imagens += `<img src="${srcImgs[i]}" alt="" class="shoe show" color="#${cores[i]}">`;
-    }
-    return imagens;
-}
-
 
 let shoeBackground = document.querySelector('.shoeBackground');
 
@@ -201,14 +177,51 @@ document.querySelector('.buy').addEventListener('click', function (event) {
 });
 
 
+function criarSpans(variacoesProdutos, cores, primary) {
+    let spans = '';
+    let numItens = variacoesProdutos.length;
+
+    let spanStyles = numItens >= 4
+        ? 'width: 20%; height: 30px;'
+        : '';
+    let textoSpanStyles = numItens >= 4
+        ? 'font-size: 0.6rem;'
+        : '';
+
+    for (let i = 0; i < numItens; i++) {
+        spans += `<span style="${spanStyles}" class="color size" primary="#${primary[i]}" color="#${cores[i]}" id="${i}"><h4 style="${textoSpanStyles}" class="textoSpan">${variacoesProdutos[i]}</h4></span>`;
+    }
+
+    return spans;
+};
+
+function criarImagens(srcImgs, cores) {
+    let imagens = '';
+    for (let i = 0; i < srcImgs.length; i++) {
+        imagens += `<img id="img${i}" src="${srcImgs[i]}" alt="" class="shoe show" color="#${cores[i]}" style="display: none;">`;
+    }
+    return imagens;
+}
+
+
+
+
+
+
 const colorSpans = document.querySelectorAll('span.color.size');
-const gradientDiv = document.querySelector('div.gradient.second.active');
-colorSpans.forEach(span => {
-    span.addEventListener('click', function () {
-        const colorValue = span.getAttribute('color').replace('#', '');
-        gradientDiv.setAttribute('color', colorValue);
+const shoeImages = document.querySelectorAll('.shoe.show');
+
+colorSpans.forEach((span, index) => {
+  span.addEventListener('click', function() {
+    // Oculta todas as imagens
+    shoeImages.forEach(image => {
+      image.style.display = 'none';
     });
+    // Mostra apenas a imagem correspondente ao span clicado
+    document.getElementById(`img${index}`).style.display = 'block';
+  });
 });
+
 
 
 
@@ -218,7 +231,7 @@ window.onload = function () {
     let display = document.querySelector('#timer');
 
     startTimer(startDate, endDate, display);
-    contador++; 
+    contador++;
 };
 
 function startTimer(startDate, endDate, display) {
@@ -228,9 +241,9 @@ function startTimer(startDate, endDate, display) {
 
         if (timeDifference <= 0) {
             clearInterval(interval);
-            dia = parseInt(dia) + 2; 
-            diaFinal = parseInt(diaFinal) + 3; 
-            contador+1; 
+            dia = parseInt(dia) + 2;
+            diaFinal = parseInt(diaFinal) + 3;
+            contador + 1;
 
 
             document.querySelector('.titulo').textContent = titulosFundo[contador];
@@ -267,3 +280,106 @@ function getCurrentTime() {
     let seconds = now.getSeconds() < 10 ? '0' + now.getSeconds() : now.getSeconds();
     return hours + ":" + minutes + ":" + seconds;
 }
+
+
+// app.js abaixo
+
+const spans = document.querySelectorAll('span.size');
+
+
+
+spans.forEach(function (span) {
+    span.addEventListener('click', function () {
+        const valor = this.textContent;
+        const produtoSelecionado = document.querySelector('.big').textContent;
+        let whatsappLink = `https://api.whatsapp.com/send/?phone=5511954909997&text=Olá! Gostaria de mais informações sobre ${produtoSelecionado}. Selecionei: ${valor} &app_absent=0`;
+
+        document.getElementById('whatsappLink').href = whatsappLink;
+
+        // Mostra apenas a primeira imagem
+        document.querySelectorAll('.shoe.show').forEach(image => {
+            image.style.display = 'none';
+        });
+        document.querySelector('.shoe.show').style.display = 'block';
+    });
+});
+
+
+document.querySelector('.fab.fa-whatsapp').addEventListener('click', function (event) {
+    const activeSize = document.querySelector('span.size.active');
+    if (!activeSize) {
+        event.preventDefault();
+        alert('Por favor, selecione um tamanho antes de enviar uma mensagem pelo WhatsApp.');
+    }
+});
+
+const sizes = document.querySelectorAll('.size');
+const colors = document.querySelectorAll('.color');
+const shoes = document.querySelectorAll('.shoe');
+const gradients = document.querySelectorAll('.gradient');
+const shoeBg = document.querySelector('.shoeBackground');
+
+
+let prevColor = "blue";
+let animationEnd = true;
+
+function changeSize(){
+    sizes.forEach(size => size.classList.remove('active'));
+    this.classList.add('active');
+}
+
+
+
+
+function changeColor(){
+    if(!animationEnd) return;
+    let primary = this.getAttribute('primary');
+    let color = this.getAttribute('color');
+    let shoe = document.querySelector(`.shoe[color="${color}"]`);
+    let gradient = document.querySelector(`.gradient[color="${color}"]`);
+    let prevGradient = document.querySelector(`.gradient[color="${prevColor}"]`);
+
+    if(color == prevColor) return;
+
+    colors.forEach(c => c.classList.remove('active'));
+    this.classList.add('active');
+
+    document.documentElement.style.setProperty('--primary', primary);
+    
+    shoes.forEach(s => s.classList.remove('show'));
+    shoe.classList.add('show');
+
+    gradients.forEach(g => g.classList.remove('first', 'second'));
+    gradient.classList.add('first');
+    prevGradient.classList.add('second');
+
+    prevColor = color;
+    animationEnd = false;
+
+    gradient.addEventListener('animationend', () => {
+        animationEnd = true;
+    })
+}
+
+sizes.forEach(size => size.addEventListener('click', changeSize));
+colors.forEach(c => c.addEventListener('click', changeColor));
+
+let x = window.matchMedia("(max-width: 1000px)");
+
+function changeHeight(){
+    if(x.matches){
+        let shoeHeight = shoes[0].offsetHeight;
+        shoeBg.style.height = `${shoeHeight * 1.6}px`;
+    }
+    else{
+        shoeBg.style.height = "475px";
+    }
+}
+
+changeHeight();
+
+window.addEventListener('resize', changeHeight);
+
+
+
+
